@@ -1,0 +1,18 @@
+* What is erlz?
+  erlz is an Erlang wrapper around the [[http://www.fastlz.org]FastLZ]
+  compression library. It's similar but not exactly the same as LZO
+  compression. Both FastLZ and LZO focus on moderate compression with
+  excellent decompression speed. This makes it suitable for
+  high-volume uses where even moderate compression is useful.
+
+* How do I build it?
+  Simply check out the sources and type 'make'. erlz requires Erlang
+  (developed against R13B04 but should also work against R14).
+
+* Where are the docs?
+  erlz has a very minimal API. Use erlz:compress/1 to compress data
+  and erlz:decompress/1 to decompress.
+
+* What license does erlz use?
+  erlz is licensed under the Apache2 license. FastLZ is distributed
+  under the MIT license.
