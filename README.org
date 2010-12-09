@@ -1,5 +1,5 @@
 * What is erlz?
-  erlz is an Erlang wrapper around the [[http://www.fastlz.org]FastLZ]
+  erlz is an Erlang wrapper around the FastLZ (http://www.fastlz.org)
   compression library. It's similar but not exactly the same as LZO
   compression. Both FastLZ and LZO focus on moderate compression with
   excellent decompression speed. This makes it suitable for
