@@ -20,7 +20,7 @@
 
 -module(erlz_nifs).
 
--define(ERLZO_API_VERSION, "1.0").
+-define(ERLZ_API_VERSION, "1.0").
 
 -on_load(init/0).
 
@@ -35,8 +35,8 @@ init() ->
                   Dir ->
                       Dir
               end,
-    SoName = filename:join([PrivDir, "erlzo_nifs"]),
-    erlang:load_nif(SoName, ?ERLZO_API_VERSION).
+    SoName = filename:join([PrivDir, "erlz_nifs"]),
+    erlang:load_nif(SoName, ?ERLZ_API_VERSION).
 
 compress(_Data) ->
     throw({error, missing_nif}).
