@@ -20,7 +20,7 @@ extern "C" {
 
 #endif /* R13B04 */
 
-#if ERL_NIF_MAJOR_VERSION == 2 && ERL_NIF_MINOR_VERSION == 0
+#if ERL_NIF_MAJOR_VERSION == 2
 
 #define enif_open_resource_type_compat(E, N, D, F, T) \
     enif_open_resource_type(E, NULL, N, D, F, T)
