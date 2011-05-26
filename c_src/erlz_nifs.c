@@ -19,7 +19,7 @@
 // under the License.
 //
 // -------------------------------------------------------------------
-#include "erl_nif_compat.h"
+#include "erl_nif.h"
 #include "fastlz.h"
 
 // NIF functions
@@ -42,15 +42,15 @@ int erlz_compress(ErlNifEnv *env, ErlNifBinary *source, ErlNifBinary *target) {
     while(expansion_factor < 2.5) {
         bufsize = (int) source->size * expansion_factor;
         bufsize = bufsize < 66 ? 66 : bufsize;
-        enif_alloc_binary_compat(env, bufsize, target);
+        enif_alloc_binary(bufsize, target);
         result = fastlz_compress_level(2, source->data, source->size, target->data);
         if (result) {
-            enif_realloc_binary_compat(env, target, result);
+            enif_realloc_binary(target, result);
             retval = 1;
             break;
         }
         else {
-            enif_release_binary_compat(env, target);
+            enif_release_binary(target);
         }
         expansion_factor += 0.1;
     }
@@ -65,15 +65,15 @@ int erlz_decompress(ErlNifEnv *env, ErlNifBinary *source, ErlNifBinary *target) 
     while(expansion_factor < 2.5) {
         bufsize = (int) source->size * expansion_factor;
         bufsize = bufsize < 66 ? 66 : bufsize;
-        enif_alloc_binary_compat(env, bufsize, target);
+        enif_alloc_binary(bufsize, target);
         result = fastlz_decompress(source->data, source->size, target->data, target->size);
         if (result) {
-            enif_realloc_binary_compat(env, target, result);
+            enif_realloc_binary(target, result);
             retval = 1;
             break;
         }
         else {
-            enif_release_binary_compat(env, target);
+            enif_release_binary(target);
         }
         expansion_factor += 0.1;
     }
